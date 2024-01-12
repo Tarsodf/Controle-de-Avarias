@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt,en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Sistema de Controle de Avarias</title>
+</head>
+<body>
+    <header>
+        <img src="imagens/transdev.png" alt="Ave Mobilidade Logo">
+        <h1>Sistema de Controle de Avarias</h1>
+    </header>
+    
+    <form id="avariaForm" action="http://formspree.io/f/xwkgppze" method="POST">
+        <label for="empresa">Empresa:</label>
+        <select name="empresa" class="ave-mobilidade">
+            <option value="(43) Ave Mobilidade">Ave Mobilidade (43)</option>
+            <option value="(76) Tuba">Tuba (76)</option>
+            <option value="(45) Famalicão">Famalicão (45)</option>
+            <option value="(79) Cavado">Cavado (79)</option>
+            <option value="(81) Transdev Norte">Transdev Norte (81) </option>
+            <option value="(44)Ex Arriva">Ex Arriva (44) </option>
+        </select>
+        <br>
+
+        <label for="tipo">Tipo (Instalação/Retirada/Avaria):</label>
+        <select name="tipo">
+            <option value="Instalação">Instalação</option>
+            <option value="Retirada">Retirada</option>
+            <option value="Avaria">Avaria</option>
+        </select>
+        <br>
+
+        <label for="equipamento">Equipamento:</label>
+        <select name="equipamento">
+            <option value="Amineo">Amineo</option>
+            <option value="Gateway">Gateway</option>
+            <option value="Connect">Connect</option>
+            <option value="Reflex">Reflex</option>
+            <!-- Adicione mais opções conforme necessário -->
+        </select>
+        <br>
+
+        <label for="numero_frota">Número de Frota (até 6 números):</label>
+        <input type="text" name="frota" id="frotaInput" maxlength="6" placeholder="Digite até 6 números" required>
+        <br>
+
+        <label for="numero_serie">Número de Série:</label>
+        <input type="text" name="numero_serie" placeholder="Digite o número de série" required>
+        <br>
+
+        <label for="descricao">Descrição:</label>
+        <textarea name="descricao" style="text-transform: uppercase;"></textarea>
+        <br>
+
+        <button type="button" onclick="cadastrarAvaria()">Cadastrar Avaria</button>
+        <button type="submit">Enviar Formulário</button>
+    </form>
+
+    <div id="listaAvarias">
+        <h2>Listagem de Avarias</h2>
+        <ul id="avariasList"></ul>
+    </div>
+
+    <footer>
+        <p>Responsável: Tarso Souza</p>
+    </footer>
+
+    <script src="seuarquivo.js"></script>
+</body>
+</html>
