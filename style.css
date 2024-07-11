@@ -1,68 +1,64 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #aa1212;
-    color: #ffffff;
-    margin: 0;
-}
-
 header {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 10px;
+    background-color: #343a40;
+    color: white;
     text-align: center;
+    padding: 20px;
 }
+
 header img {
-    max-width: 150px;
-    width: 1500px;
-    height: 90px;
-    margin :10px;
-
-}
-
-form {
-    max-width: 600px;
-    margin: 20px auto;
-    padding: 10px;
-    background-color: #35302f;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(167, 136, 99, 0.1);
-}
-
-form label {
-    display: block;
-    margin-bottom: 5px;
-    color: #ffffff;
-    font-weight: bold;
-}
-
-form input,
-form select,
-form textarea {
-    width: 100%;
-    padding: 8px;
+    max-height: 100px;
     margin-bottom: 10px;
-    box-sizing: border-box;
-}
+    }
 
-form button {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 10px;
-    border: none;
+/* Ajustes para o formulário */
+#avariaForm {
+    background-color: #f8f9fa;
+    padding: 20px;
     border-radius: 5px;
-    cursor: pointer;
+    box-shadow: 0.1px rgba(0,0,0,0.1);
 }
 
-form button:hover {
-    background-color: #555555;
+#avariaForm .form-group {
+    margin-bottom: 15px;
 }
 
+#avariaForm .form-control {
+    border-radius: 5px;
+}
+
+#avariaForm .btn {
+    margin-right: 10px;
+}
+
+/* Ajustes para o rodapé */
 footer {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 0.5px;
+    background-color: #343a40;
+    color: white;
     text-align: center;
-    position: fixed;
-    bottom: 0;
+    padding: 10px;
+    position: absolute;
+    bottom:10;
     width: 100%;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 24px;
+    }
+
+    footer p {
+        font-size: 14px;
+    }
+}
+
+/* Estilos adicionais */
+body {
+    background-color: #e9ecef;
+    font-family: Arial, sans-serif;
+    padding-bottom: 60px; /* Espaço para o rodapé */
+}
+
+.container {
+    margin-top: 30px;
 }
