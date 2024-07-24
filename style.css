@@ -1,47 +1,89 @@
+body {
+    background: url('maosteclando.jpg') no-repeat left top;
+    background-size: cover;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+}
+
 header {
-    background-color: #343a40;
-    color: white;
+    background-color: #1c718d;
+    color: rgb(143, 135, 32);
     text-align: center;
-    padding: 20px;
+    padding: 30px 20px;
 }
 
 header img {
-    max-height: 100px;
-    margin-bottom: 10px;
-    }
+    max-height: 150px;
+    margin-bottom: 20px;
+}
 
-/* Ajustes para o formulário */
-#avariaForm {
-    background-color: #f8f9fa;
+.container {
+    max-width: 800px;
+    margin: 0 auto;
     padding: 20px;
+    background-color: #072c66;
+    border-radius: 18px;
+    box-shadow: 0 0 10px rgba(18, 18, 18, 0.1);
+    flex-grow: 1;
+}
+
+#loginContainer {
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#login img {
+    max-height: 150px;
+}
+
+#formulario {
+    max-width: 400px;
+    margin: auto;
+    background: #59758a;
     border-radius: 5px;
-    box-shadow: 0.1px rgba(0,0,0,0.1);
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(18, 18, 18, 0.1);
 }
 
-#avariaForm .form-group {
-    margin-bottom: 15px;
+.form-floating .form-select,
+.form-floating .form-control {
+    height: calc(3.5rem + 2px);
 }
 
-#avariaForm .form-control {
-    border-radius: 5px;
-}
-
-#avariaForm .btn {
-    margin-right: 10px;
-}
-
-/* Ajustes para o rodapé */
 footer {
-    background-color: #343a40;
-    color: white;
+    background-color: #090909;
+    color: rgb(32, 19, 19);
     text-align: center;
-    padding: 10px;
-    position: absolute;
-    bottom:10;
-    width: 100%;
+    padding: 20px;
+    margin-top: auto;
 }
 
-/* Responsividade */
+.btn-primary {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-primary:hover {
+    background-color: #004494;
+    border-color: #004494;
+}
+
+.btn-success {
+    background-color: #28a745;
+    border-color: #28a745;
+}
+
+.btn-success:hover {
+    background-color: #218838;
+    border-color: #1e7e34;
+}
+
 @media (max-width: 768px) {
     header h1 {
         font-size: 24px;
@@ -50,15 +92,4 @@ footer {
     footer p {
         font-size: 14px;
     }
-}
-
-/* Estilos adicionais */
-body {
-    background-color: #e9ecef;
-    font-family: Arial, sans-serif;
-    padding-bottom: 60px; /* Espaço para o rodapé */
-}
-
-.container {
-    margin-top: 30px;
 }
