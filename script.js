@@ -1,76 +1,34 @@
-function obterAvariasArmazenadas() {
-    var avariasArmazenadas = localStorage.getItem('avarias');
-    return avariasArmazenadas ? JSON.parse(avariasArmazenadas) : [];
-}
+document.addEventListener('DOMContentLoaded', function() {
+    const loginContainer = document.getElementById('loginContainer');
+    const avariaContainer = document.getElementById('avariaContainer');
+    const loginForm = document.getElementById('loginForm');
 
-function salvarAvarias(avarias) {
-    localStorage.setItem('avarias', JSON.stringify(avarias));
-}
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        // Simulando o login bem-sucedido
+        loginContainer.style.display = 'none';
+        avariaContainer.style.display = 'block';
+    });
 
-var avarias = obterAvariasArmazenadas();
-
-document.getElementById("avariaForm").addEventListener("submit", function (event) {
+    document.getElementById('avariaForm').addEventListener('submit', async function(event) {
         event.preventDefault();
 
-        cadastrarAvaria();
-});
+        const form = event.target;
+        const data = new FormData(form);
 
-function validarFormulario() {
-    var empresa = document.getElementById("avariaForm").empresa.value;
-    var frota = document.getElementById("frotaInput").value;
-    var tipo = document.getElementById("avariaForm").tipo.value;
-    var equipamento = document.getElementById("avariaForm").equipamento.value;
-    var descricao = document.getElementById("avariaForm").descricao.value;
-    var numeroSerie = document.getElementById("numeroSerieInput").value;
+        try {
+            const response = await emailjs.sendForm('service_3xk0btj', 'template_v9eh2oh', data);
 
-    if (empresa.trim() === "" || frota.trim() === "" || tipo.trim() === "" || equipamento.trim() === "" || descricao.trim() === "" || numeroSerie.trim() === "") {
-        alert("Preencha todos os campos antes de cadastrar a avaria.");
-        return false;
-    }
-
-    return true;
-}
-
-function cadastrarAvaria() {
-    if (!validarFormulario()) {
-        return;
-    }
-
-    var empresa = document.getElementById("avariaForm").empresa.value;
-    var frota = document.getElementById("frotaInput").value;
-    var tipo = document.getElementById("avariaForm").tipo.value;
-    var equipamento = document.getElementById("avariaForm").equipamento.value;
-    var descricao = document.getElementById("avariaForm").descricao.value;
-    var numeroSerie = document.getElementById("numeroSerieInput").value;
-
-    avarias.push({ empresa, frota, tipo, equipamento, descricao, numeroSerie });
-    salvarAvarias(avarias);
-
-    var listaAvarias = document.getElementById("avariasList");
-    var listItem = document.createElement("li");
-    listItem.textContent = `Empresa: ${empresa} - Frota: ${frota} - Tipo: ${tipo} - Equipamento: ${equipamento} - Descrição: ${descricao} - Número de Série: ${numeroSerie}`;
-    
-    listaAvarias.appendChild(listItem);
-}
-
-function exibirAvarias() {
-    document.getElementById("avariasList").innerHTML = "";
-
-    var avariasArmazenadas = obterAvariasArmazenadas();
-
-    var listaAvarias = document.getElementById("avariasList");
-    avariasArmazenadas.forEach(function (avaria) {
-        var listItem = document.createElement("li");
-        listItem.textContent = `Empresa: ${avaria.empresa} - Frota: ${avaria.frota} - Tipo: ${avaria.tipo} - Equipamento: ${avaria.equipamento} - Descrição: ${avaria.descricao} - Número de Série: ${avaria.numeroSerie}`;
-        listaAvarias.appendChild(listItem);
+            if (response.status === 200) {
+                alert('Formulário enviado com sucesso!');
+                form.reset();
+            } else {
+                alert('Ocorreu um erro ao enviar o formulário.');
+            }
+        } catch (error) {
+            alert('Ocorreu um erro ao enviar o formulário.');
+            console.error('Erro ao enviar o formulário:', error);
+        }
     });
-}
-
-function limparAvarias() {
-    document.getElementById("avariasList").innerHTML = "";
-
-    localStorage.removeItem('avarias');
-}
-function editarAvarias() {
-    alert("Função de edição ainda não implementada.");
-}
+});
