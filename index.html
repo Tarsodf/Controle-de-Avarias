@@ -1,39 +1,60 @@
 <!DOCTYPE html>
-<html lang="pt,en">
+<html lang="pt-br">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <title>Transdev - Gestão de Avarias</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="style.css">
-    <link href="https://flutter.dev/">
-    <title>FLEETFIX</title>
 </head>
 <body>
-    <header class="bg-dark text-white text-center py-3">
-        <img src="Logo_Transdev.png" alt="Ave Mobilidade Logo" class="img-fluid mb-2" style="max-height: 100px;">
-        <h1>Transdev</h1>
-        <h9>Gestão de Avarias de Frotas</h9>
-    </header>
-    
-    <div class="container my-5">
-        <form id="avariaForm" action="https://formspree.io/f/xwkgppze" method="POST">
-            <div class="form-group">
-                <label for="empresa">Empresa:</label>
-                <select name="empresa" class="form-control" required>
+    <div id="loginContainer" class="container">
+        <section id="login" class="text-center">
+            <img src="maoteclando.jpg" alt="Logo" class="img-fluid my-4" style="max-width: 150px;">
+            <div id="formulario" class="p-4">
+                <h1>Login</h1>
+                <p>Seja bem-vindo novamente. Faça login para acessar a sua conta.</p>
+                <form id="loginForm" action="login.php" method="post" autocomplete="on">
+                    <div class="mb-3">
+                        <i class="material-symbols-outlined"></i>
+                        <input type="email" name="login" id="ilogin" class="form-control" placeholder="Seu e-mail" autocomplete="email" required maxlength="30">
+                        <label for="ilogin">Login</label>
+                    </div>
+                    <div class="mb-3">
+                        <i class="material-symbols-outlined"></i>
+                        <input type="password" name="senha" id="isenha" class="form-control" placeholder="Sua senha" autocomplete="current-password" required minlength="8" maxlength="20">
+                        <label for="isenha">Senha</label>
+                    </div>
+                    <input type="submit" value="Entrar" class="btn btn-primary">
+                    <a href="esqueci.html" class="btn btn-link">Esqueci a senha <i class="material-symbols-outlined"></i></a>
+                </form>
+            </div>
+        </section>
+    </div>
+
+    <div id="avariaContainer" class="container" style="display: none;">
+        <header id="headerAvarias" class="text-white text-center py-4">
+            <img src="Logo_Transdev.png" alt="Transdev Logo" class="img-fluid mb-3" style="max-height: 200px; width: auto;">
+            <h1>Transdev</h1>
+            <h3>Gestão de Avarias de Frotas</h3>
+        </header>
+        <form id="avariaForm">
+            <div class="mb-3">
+                <label for="empresa" class="form-label">Empresa:</label>
+                <select name="empresa" id="empresa" class="form-select" required>
                     <option value="" disabled selected>Selecione a Empresa</option>
-                    <option value="(80) Avic">AVC (80)</option>
-                    <option value="(43) Ave Mobilidade">Ave Mobilidade (43)</option>
-                    <option value="(76) Tuba">Tuba (76)</option>
-                    <option value="(80) Empresa Horteleira do Geres">EHG (80)</option>
-                    <option value="(79) Cavado">Cavado (79)</option>
-                    <option value="(80) Verde Minho Transporte">JAF (80) </option>
-                    <option value="(44)Ex Arriva">Ex Arriva (44) </option>
-                </select>
+                    <option value="(80) Avic" data-regiao="Braga">AVC (80)</option>
+                    <option value="(43) Ave Mobilidade" data-regiao="Guimarães">Ave Mobilidade (43)</option>
+                    <option value="(76) Tuba" data-regiao="Porto">Tuba (76)</option>
+                    <option value="(80) Empresa Horteleira do Geres" data-regiao="Braga">EHG (80)</option>
+                    <option value="(79) Cavado" data-regiao="Braga">Cavado (79)</option>
+                    <option value="(80) Verde Minho Transporte" data-regiao="Viana do Castelo">JAF (80)</option>
+                    </select>
             </div>
 
-            <div class="form-group">
-                <label for="tipo">Tipo (Instalação/Retirada/Avaria):</label>
-                <select name="tipo" class="form-control" required>
+            <div class="mb-3">
+                <label for="tipo" class="form-label">Tipo (Instalação/Retirada/Avaria):</label>
+                <select name="tipo" id="tipo" class="form-select" required>
                     <option value="" disabled selected>Selecione o Tipo</option>
                     <option value="Instalação">Instalação</option>
                     <option value="Retirada">Retirada</option>
@@ -41,9 +62,9 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="equipamento">Equipamento:</label>
-                <select name="equipamento" class="form-control" required>
+            <div class="mb-3">
+                <label for="equipamento" class="form-label">Equipamento:</label>
+                <select name="equipamento" id="equipamento" class="form-select" required>
                     <option value="" disabled selected>Selecione o Equipamento</option>
                     <option value="Amineo">Amineo</option>
                     <option value="Gateway">Gateway</option>
@@ -52,19 +73,24 @@
                 </select>
             </div>
 
-            <div class="form-group">
-                <label for="frota">Número de Frota (até 6 números):</label>
+            <div class="mb-3">
+                <label for="frota" class="form-label">Número de Frota (até 6 números):</label>
                 <input type="text" name="frota" id="frotaInput" class="form-control" maxlength="6" placeholder="Digite até 6 números" required>
             </div>
 
-            <div class="form-group">
-                <label for="numero_serie">Número de Série:</label>
-                <input type="text" name="numero_serie" class="form-control" placeholder="Digite o número de série" required>
+            <div class="mb-3">
+                <label for="numero_serie" class="form-label">Número de Série:</label>
+                <input type="text" name="numero_serie" id="numero_serie" class="form-control" placeholder="Digite o número de série" required>
             </div>
 
-            <div class="form-group">
-                <label for="descricao">Descrição:</label>
-                <textarea name="descricao" class="form-control" style="text-transform: uppercase;" rows="3" required></textarea>
+            <div class="mb-3">
+                <label for="descricao" class="form-label">Descrição:</label>
+                <textarea name="descricao" id="descricao" class="form-control" style="text-transform: uppercase;" rows="3" required></textarea>
+            </div>
+
+            <div class="mb-3">
+                <label for="fotos" class="form-label">Anexar Fotografias:</label>
+                <input type="file" name="fotos" id="fotos" class="form-control" accept="image/*" multiple>
             </div>
 
             <button id="btnCadastrarListarAvarias" type="button" class="btn btn-primary mb-2">Cadastrar/Listar Avarias</button>
@@ -72,83 +98,11 @@
         </form>
     </div>
 
-    <footer class="bg-dark text-white text-center py-3">
+    <footer class="text-white text-center py-3">
         <p>Desenvolvido: TSM Infraestrutura IT</p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="formulario.js" defer></script>
-    <script src="https://formspree.io/js/formbutton-v1.min.js" defer></script>
-    <script>
-    window.formbutton=window.formbutton||function(){(formbutton.q=formbutton.q||[]).push(arguments)};
-    formbutton("create", {
-        action: "https://formspree.io/f/xwkgppze",
-        title: "How can we help?",
-        fields: [
-{
-            type: "email",
-            label: "Email:",
-            name: "email",
-            required: true,
-            placeholder: "your@email.com"
-    },
-        {
-            type: "textarea",
-            label: "Message:",
-            name: "message",
-            placeholder: "What's on your mind?",
-    },
-    { type: "submit" }
-        ],
-    styles: {
-    title: {
-    backgroundColor: "gray"
-    },
-        button: {
-        backgroundColor: "gray"
-        }
-        }
-    });
-    </script>
-    <script>
-        document.getElementById('btnCadastrarListarAvarias').addEventListener('click', function() {
-            // Comportamento desejado para o botão "Cadastrar/Listar Avarias"
-            alert('Cadastrar/Listar Avarias foi clicado!');
-            // Redirecionar para outra página ou abrir um modal, por exemplo
-            // window.location.href = 'outra_pagina.html';
-        });
-
-        document.getElementById('avariaForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Impede o envio padrão do formulário
-
-            const form = event.target;
-            const data = new FormData(form);
-
-            fetch(form.action, {
-                method: form.method,
-                body: data,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            }).then(response => {
-                if (response.ok) {
-                    alert('Formulário enviado com sucesso!');
-                    form.reset();
-                } else {
-                    response.json().then(data => {
-                        if (Object.hasOwn(data, 'errors')) {
-                            alert(data["errors"].map(error => error["message"]).join(", "));
-                        } else {
-                            alert('Ocorreu um erro ao enviar o formulário.');
-                        }
-                    });
-                }
-            }).catch(error => {
-                alert('Ocorreu um erro ao enviar o formulário.');
-            });
-        });
-    </script>
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
