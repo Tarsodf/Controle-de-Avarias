@@ -1,54 +1,55 @@
 body {
-    background: url('maosteclando.jpg') no-repeat left top;
-    background-size: cover;
+    background: url('maoteclando.jpg') no-repeat left center;
+    background-size: 2050px auto;
     font-family: 'Arial', sans-serif;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
     margin: 0;
+    padding-left: 0;
 }
 
 header {
-    background-color: #1c718d;
-    color: rgb(143, 135, 32);
+    background-color: #38758a;
+    color: rgb(198, 204, 210);
     text-align: center;
     padding: 30px 20px;
 }
 
 header img {
-    max-height: 150px;
-    margin-bottom: 20px;
+    max-height: 1200px;
+    margin-bottom: 220px;
 }
 
 .container {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 1000px;
+    margin: 20PX auto;
     padding: 20px;
-    background-color: #072c66;
-    border-radius: 18px;
-    box-shadow: 0 0 10px rgba(18, 18, 18, 0.1);
+    background-color: #6da6b4;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(161, 141, 141, 0.1);
     flex-grow: 1;
 }
 
 #loginContainer {
-    height: 100vh;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text visibility */
+    height: calc(100vh - 50px);
+    background: rgba(0, 0, 0, 0.5);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 #login img {
-    max-height: 150px;
+    max-height: 1050px;
 }
 
 #formulario {
     max-width: 400px;
     margin: auto;
-    background: #59758a;
-    border-radius: 5px;
+    background: #d8dee6;
+    border-radius: 25px;
     padding: 20px;
-    box-shadow: 0 0 10px rgba(18, 18, 18, 0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .form-floating .form-select,
@@ -57,11 +58,13 @@ header img {
 }
 
 footer {
-    background-color: #090909;
-    color: rgb(32, 19, 19);
+    background-color: #2c2c2c;
+    color: rgb(8, 8, 8);
     text-align: center;
-    padding: 20px;
-    margin-top: auto;
+    padding: 10px;
+    width: 100%;
+    position: center;
+    bottom: 0;
 }
 
 .btn-primary {
@@ -80,16 +83,16 @@ footer {
 }
 
 .btn-success:hover {
-    background-color: #218838;
+    background-color: #1e7e34;
     border-color: #1e7e34;
 }
 
-@media (max-width: 768px) {
-    header h1 {
-        font-size: 24px;
-    }
+h2, h3, label {
+    font-weight: bolder;
+    color: #0c0c0c; /* Texto em negrito */
+}
 
-    footer p {
-        font-size: 14px;
-    }
+.esqueci-senha {
+    color: #121111 !important;
+    font-weight: bold;
 }
