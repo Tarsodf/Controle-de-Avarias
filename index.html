@@ -5,28 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Transdev - Gestão de Avarias</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined">
 </head>
 <body>
     <div id="loginContainer" class="container">
-        <section id="login" class="text-center">
-            <img src="maoteclando.jpg" alt="Logo" class="img-fluid my-4" style="max-width: 150px;">
-            <div id="formulario" class="p-4">
+        <section id="login" class="d-flex align-items-center">
+            <div id="formulario" class="p-6">
                 <h1>Login</h1>
                 <p>Seja bem-vindo novamente. Faça login para acessar a sua conta.</p>
                 <form id="loginForm" action="login.php" method="post" autocomplete="on">
-                    <div class="mb-3">
-                        <i class="material-symbols-outlined"></i>
-                        <input type="email" name="login" id="ilogin" class="form-control" placeholder="Seu e-mail" autocomplete="email" required maxlength="30">
+                    <div class="mb-4">
                         <label for="ilogin">Login</label>
+                        <input type="email" name="login" id="ilogin" class="form-control" placeholder="Seu e-mail" autocomplete="email" required maxlength="30" aria-label="Seu e-mail">
                     </div>
                     <div class="mb-3">
-                        <i class="material-symbols-outlined"></i>
-                        <input type="password" name="senha" id="isenha" class="form-control" placeholder="Sua senha" autocomplete="current-password" required minlength="8" maxlength="20">
                         <label for="isenha">Senha</label>
+                        <input type="password" name="senha" id="isenha" class="form-control" placeholder="Sua senha" autocomplete="current-password" required minlength="8" maxlength="20" aria-label="Sua senha">
                     </div>
                     <input type="submit" value="Entrar" class="btn btn-primary">
-                    <a href="esqueci.html" class="btn btn-link">Esqueci a senha <i class="material-symbols-outlined"></i></a>
+                    <a href="esqueci.html" class="btn btn-link esqueci-senha">Esqueci a senha <i class="material-symbols-outlined"> </i></a>
                 </form>
             </div>
         </section>
@@ -34,28 +32,44 @@
 
     <div id="avariaContainer" class="container" style="display: none;">
         <header id="headerAvarias" class="text-white text-center py-4">
-            <img src="Logo_Transdev.png" alt="Transdev Logo" class="img-fluid mb-3" style="max-height: 200px; width: auto;">
-            <h1>Transdev</h1>
+        <h1>Transdev</h1>
             <h3>Gestão de Avarias de Frotas</h3>
         </header>
         <form id="avariaForm">
             <div class="mb-3">
                 <label for="empresa" class="form-label">Empresa:</label>
-                <select name="empresa" id="empresa" class="form-select" required>
-                    <option value="" disabled selected>Selecione a Empresa</option>
-                    <option value="(80) Avic" data-regiao="Braga">AVC (80)</option>
-                    <option value="(43) Ave Mobilidade" data-regiao="Guimarães">Ave Mobilidade (43)</option>
-                    <option value="(76) Tuba" data-regiao="Porto">Tuba (76)</option>
-                    <option value="(80) Empresa Horteleira do Geres" data-regiao="Braga">EHG (80)</option>
-                    <option value="(79) Cavado" data-regiao="Braga">Cavado (79)</option>
-                    <option value="(80) Verde Minho Transporte" data-regiao="Viana do Castelo">JAF (80)</option>
-                    </select>
+                <select name="empresa" id="empresa" class="form-select" required aria-label="Selecione a Empresa">
+                    <option value="" disabled selected>Selecione a Empresa:</option>
+                    <optgroup label="Braga">
+                        <option value="Avic">72-Avic</option>
+                        <option value="Empresa Horteleira do Geres">80-Empresa Horteleira Geres</option>
+                        <option value="Cavado">79-Cavado</option>
+                    </optgroup>
+                    <optgroup label="Guimarães">
+                        <option value="Ave Mobilidade">43-Ave Mobilidade</option>
+                    </optgroup>
+                    <optgroup label="Porto">
+                        <option value="Tuba">76-Tuba</option>
+                    </optgroup>
+                    <optgroup label="Viana do Castelo">
+                        <option value="Verde Minho Transporte">80-Verde Minho</option>
+                    </optgroup>
+                    <optgroup label="Aveiro">
+                        <option value="Aveiro Bus">82-Aveiro Bus</option>
+                    </optgroup>
+                    optgroup label="Tâmega e Sousa">
+                        <option value="Tamega e Sousa">83-Tâmega e Sousa</option>
+                    </optgroup>
+                    <optgroup label="Santo Tirso">
+                        <option value="Transdev Norte">81-Transdev Norte</option>
+                    </optgroup>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label for="tipo" class="form-label">Tipo (Instalação/Retirada/Avaria):</label>
-                <select name="tipo" id="tipo" class="form-select" required>
-                    <option value="" disabled selected>Selecione o Tipo</option>
+                <select name="tipo" id="tipo" class="form-select" required aria-label="Selecione o Tipo">
+                    <option value="" disabled selected>Selecione o Tipo:</option>
                     <option value="Instalação">Instalação</option>
                     <option value="Retirada">Retirada</option>
                     <option value="Avaria">Avaria</option>
@@ -64,8 +78,8 @@
 
             <div class="mb-3">
                 <label for="equipamento" class="form-label">Equipamento:</label>
-                <select name="equipamento" id="equipamento" class="form-select" required>
-                    <option value="" disabled selected>Selecione o Equipamento</option>
+                <select name="equipamento" id="equipamento" class="form-select" required aria-label="Selecione o Equipamento">
+                    <option value="" disabled selected>Selecione o Equipamento:</option>
                     <option value="Amineo">Amineo</option>
                     <option value="Gateway">Gateway</option>
                     <option value="Connect">Connect</option>
@@ -75,22 +89,29 @@
 
             <div class="mb-3">
                 <label for="frota" class="form-label">Número de Frota (até 6 números):</label>
-                <input type="text" name="frota" id="frotaInput" class="form-control" maxlength="6" placeholder="Digite até 6 números" required>
+                <input type="text" name="frota" id="frota" class="form-control" maxlength="6" placeholder="Digite até 6 números" required aria-label="Número de Frota">
             </div>
 
             <div class="mb-3">
                 <label for="numero_serie" class="form-label">Número de Série:</label>
-                <input type="text" name="numero_serie" id="numero_serie" class="form-control" placeholder="Digite o número de série" required>
+                <input type="text" name="numero_serie" id="numero_serie" class="form-control" placeholder="Digite o número de série" required aria-label="Número de Série">
+            </div>
+
+            <div class="mb-3">
+                <label for="tipo_avaria" class="form-label">Tipo de Avaria:</label>
+                <select name="tipo_avaria" id="tipo_avaria" class="form-select" required aria-label="Selecione o Tipo de Avaria">
+                    <option value="" disabled selected>Selecione o Tipo de Avaria:</option>
+                </select>
             </div>
 
             <div class="mb-3">
                 <label for="descricao" class="form-label">Descrição:</label>
-                <textarea name="descricao" id="descricao" class="form-control" style="text-transform: uppercase;" rows="3" required></textarea>
+                <textarea name="descricao" id="descricao" class="form-control" style="text-transform: uppercase;" rows="3" required aria-label="Descrição"></textarea>
             </div>
 
             <div class="mb-3">
                 <label for="fotos" class="form-label">Anexar Fotografias:</label>
-                <input type="file" name="fotos" id="fotos" class="form-control" accept="image/*" multiple>
+                <input type="file" name="fotos" id="fotos" class="form-control" accept="image/*" multiple aria-label="Anexar Fotografias">
             </div>
 
             <button id="btnCadastrarListarAvarias" type="button" class="btn btn-primary mb-2">Cadastrar/Listar Avarias</button>
@@ -98,11 +119,14 @@
         </form>
     </div>
 
-    <footer class="text-white text-center py-3">
-        <p>Desenvolvido: TSM Infraestrutura IT</p>
+    <footer class="text-white text-center py-2">
+        &copy; 2024 TSM Infraestrutura IT, Inc.<br>
+        Please check out our <a class="primaryLink text-xs" title="Visit the Formspree Help Site" href="mailto:tarso.madeira@transdev.pt" target="_blank">Help Site</a>,
+        <a class="primaryLink text-xs" title="tarso souza madeira Terms of Use" href="" target="_blank">Terms of Use</a>,
+        <a class="primaryLink text-xs" title="tarso souza madeira Privacy Policy" href="" target="_blank">Privacy Policy</a>
     </footer>
 
-    <script src="https://cdn.emailjs.com/dist/email.min.js"></script>
+    <!-- Referência ao arquivo JavaScript externo -->
     <script src="script.js"></script>
 </body>
 </html>
