@@ -45,15 +45,15 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Define os equipamentos baseados na empresa
     const equipamentosPorEmpresa = {
-        'Ave Mobilidade': 'Amineo',
-        'Aveiro Bus': 'Amineo',
-        'Tamega e Sousa': 'Amineo',
-        'Tuba': '',
-        'Transdev Norte': '',
-        'Verde Minho Transporte': '',
-        'Cavado': 'Connect',
-        'Empresa Horteleira do Geres': '',
-        'Avic': ''
+        'sdfsdfasdf': 'adsfadsfa',
+        'asdfafasd': 'asdfafasd',
+        'asdfasdfasd': 'Adsfasdfasd',
+        'adsfasdfa': '',
+        'asdfasdfa': '',
+        'sdfafasfasd': '',
+        'dsafasdf': 'asdfasdfas',
+        'asdfadsfasdf': '',
+        'asdfasdf': ''
     };
 
     // Adiciona o evento de submissão ao formulário de login
