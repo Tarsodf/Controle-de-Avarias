@@ -5,13 +5,13 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-    margin: 0;
+    margin: 1;
     padding-left: 0;
 }
 
 header {
     background-color: #38758a;
-    color: rgb(198, 204, 210);
+    color: rgb(151, 155, 159);
     text-align: center;
     padding: 30px 20px;
 }
@@ -95,4 +95,12 @@ h2, h3, label {
 .esqueci-senha {
     color: #121111 !important;
     font-weight: bold;
+}
+
+#headerAvarias h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: rgba(255, 0, 0, 0.986);
+    text-shadow: 2px 2px 4px white;
+    
 }
